@@ -1,8 +1,6 @@
 FROM library/debian
 RUN apt-get update \
-    && apt-get install python-pip -y \
-    && apt-get install git -y\
-    && pip install shadowsocks \
+    && apt-get install shadowsocks -y \
     && mkdir /root/shadowsocks \
     && cd /root/shadowsocks \
 COPY ss.json /root/shadowsocks 
