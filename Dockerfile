@@ -1,13 +1,10 @@
 FROM library/debian
 RUN apt-get update \
-    && apt-get install python-pip \
-    && apt-get install wget \
+    && apt-get install python-pip -y \
+    && apt-get install git -y\
     && pip install shadowsocks \
-    && cd /root \
-    && wget xxx \
-    && tar -zxvf xxx.tar.gz \
-    && cd xxx \
-    && rm /root/xxx.tar.gz \
+    && mkdir /root/shadowsocks \
+    && cd /root/shadowsocks \
+COPY ss.json /root/shadowsocks 
+RUN apt-get remove git -y\
     && apt-get purge -y --auto-remove $buildDeps
-    && ssserver -qq -c ./ss.json
-    
