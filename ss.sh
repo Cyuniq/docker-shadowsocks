@@ -1,0 +1,1 @@
+ssserver -c /etc/ss.json -d start
